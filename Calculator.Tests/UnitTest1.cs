@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xunit;
 
 
@@ -23,20 +23,16 @@ namespace Calculator.Tests
             //Assert
             Assert.Equal(expected, actual);
         }
-        //[Theory]
-        //[InlineData(3, 6, 9)]
-        ////[InlineData(4, 3, 7)]
-        ////[InlineData(-10, 10, 0)]
-        ////[InlineData(34, 5.33, 39.33)]
-        ////[InlineData(-10, -10, -20)]
-        //public void AddArray(double num1, double num2, double expected, params double[] n)
-        //{
-        //    // Action
-        //    double actual = CalculatorProgram.Program.Add(num1, num2, n);
+        [Theory]
+        [InlineData(3, 6, 9)]
+        public void AddArray(double num1, double num2, double expected, params double[] n)
+        {
+            // Action
+            double actual = CalculatorProgram.Program.Add(num1, num2, n);
 
-        //    // Assertion
-        //    Assert.Equal(expected, actual);
-        //}
+            // Assertion
+            Assert.Equal(expected, actual);
+        }
 
         [Fact]
         public void Substract()
@@ -52,20 +48,17 @@ namespace Calculator.Tests
             //assert
             Assert.Equal(expected, actual);
         }
-        //[Theory]
-        //[InlineData(3, 6, 9)]
-        ////[InlineData(4, 3, 7)]
-        ////[InlineData(-10, 10, 0)]
-        ////[InlineData(34, 5.33, 39.33)]
-        ////[InlineData(-10, -10, -20)]
-        //public void SubstractArray(double num1, double num2, double expected, params double[] n)
-        //{
-        //    //act
-        //    var actual = CalculatorProgram.Program.Subtract(num1, num2, n);
+        [Theory]
+        [InlineData(3, 6, -3)]
+        
+        public void SubstractArray(double num1, double num2, double expected, params double[] n)
+        {
+            //act
+            var actual = CalculatorProgram.Program.Subtract(num1, num2, n);
 
-        //    //assert
-        //    Assert.Equal(expected, actual);
-        //}
+            //assert
+            Assert.Equal(expected, actual);
+        }
 
         [Theory(DisplayName = "Maths- Divided with parameters")]
         [InlineData(40, 8, 5)]
@@ -98,18 +91,18 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual, 0);
         }
 
-        [Fact(DisplayName = "Maths - Divide by Zero Exception")]
-        public void DivideByZeroException()
-        {
-            //arrange
-            double a = 100;
-            double b = 0;
+        //[Fact(DisplayName = "Maths - Divide by Zero Exception")]
+        //public void DivideByZeroException()
+        //{
+        //    //arrange
+        //    double a = 100;
+        //    double b = 0;
 
-            //act
-            Action act = () => CalculatorProgram.Program.Divide(a, b);
+        //    //act
+        //    Action act = () => CalculatorProgram.Program.Divide(a, b);
 
-            //assert
-            Assert.Throws<DivideByZeroException>(act);
-        }
+        //    //assert
+        //    Assert.Throws<DivideByZeroException>(act);
+        //}
     }
 }
