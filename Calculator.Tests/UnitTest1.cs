@@ -76,7 +76,7 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact(Skip = "Do not run now")]
+        [Fact]
         public void Multiply()
         {
             //arrange
