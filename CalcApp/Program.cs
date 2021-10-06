@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 
 namespace CalculatorProgram
@@ -107,22 +107,22 @@ namespace CalculatorProgram
             return result;
         }
 
-        //public static double Add(double num1, double num2, params double[] n)
-        //{
-        //    double result;
+        public static double Add(double num1, double num2, params double[] n)
+        {
+            double result;
 
-        //    result = num1 + num2;
-            
-        //    if (n != null)
-        //    {
-        //        foreach (int i in n)
-        //        {
+            result = num1 + num2;
 
-        //            Console.WriteLine($"Your result: " + (result += i));
-        //        }
-        //    }
-        //    return result;
-        //}
+            if (n != null)
+            {
+                foreach (int i in n)
+                {
+
+                    Console.WriteLine($"Your result: " + (result += i));
+                }
+            }
+            return result;
+        }
 
         public static double Subtract(double num1, double num2)
         {
@@ -133,21 +133,21 @@ namespace CalculatorProgram
             return result;
         }
 
-        //public static double Subtract(double num1, double num2, params double[] n)
-        //{
-        //    double result;
-        //    result = num1 - num2;
-            
-            
-        //    if (n != null)
-        //    {
-        //        foreach (int i in n)
-        //        {
-        //            Console.WriteLine($"Your result: " + (result -= i));
-        //        }
-        //    }
-        //    return result;
-        //}
+        public static double Subtract(double num1, double num2, params double[] n)
+        {
+            double result;
+            result = num1 - num2;
+
+
+            if (n != null)
+            {
+                foreach (int i in n)
+                {
+                    Console.WriteLine($"Your result: " + (result -= i));
+                }
+            }
+            return result;
+        }
 
         public static double Multiply(double num1, double num2)
         {
@@ -162,12 +162,12 @@ namespace CalculatorProgram
         {
             double result;
             result = num1 / num2;
-            while (num2 == 0)
-            {
-                Console.WriteLine("Enter a non-zero divisor: ");
-                Console.WriteLine();
-                num2 = GetNumberFromUser();
-            }
+            //while (num2 == 0)
+            //{
+            //    Console.WriteLine("Enter a non-zero divisor: ");
+            //    Console.WriteLine();
+            //    num2 = GetNumberFromUser();
+            //}
             Console.WriteLine($"Your result: {num1} / {num2} = " + result);
             
             return result;
