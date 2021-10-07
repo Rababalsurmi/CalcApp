@@ -161,16 +161,28 @@ namespace CalculatorProgram
         public static double Divide(double num1, double num2)
         {
             double result;
-            result = num1 / num2;
+            
+            if (num2 != 0)
+            {
+                result = num1 / num2;
+            }
+            
+            else
+            {
+                Console.WriteLine("Oops! Cannot proceed with a Zero divisor!");
+                return 0;
+            }
+            Console.WriteLine($"Your result: {num1} / {num2} = " + result);
+            return result;
             //while (num2 == 0)
             //{
             //    Console.WriteLine("Enter a non-zero divisor: ");
             //    Console.WriteLine();
             //    num2 = GetNumberFromUser();
             //}
-            Console.WriteLine($"Your result: {num1} / {num2} = " + result);
-            
-            return result;
+            //Console.WriteLine($"Your result: {num1} / {num2} = " + result);
+
+            //return result;
         }
     }
 }
