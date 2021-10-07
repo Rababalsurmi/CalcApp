@@ -91,6 +91,20 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual, 0);
         }
 
+        [Fact]
+        public void DivideByZero()
+        {
+            //arrange
+           
+            double expected = 0;
+
+            //act
+            var actual = CalculatorProgram.Program.Divide(15, 0);
+
+            //assert
+            Assert.Equal(expected, actual);
+        }
+
         //[Fact(DisplayName = "Maths - Divide by Zero Exception")]
         //public void DivideByZeroException()
         //{
