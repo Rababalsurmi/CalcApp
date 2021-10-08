@@ -9,7 +9,7 @@ namespace Calculator.Tests
     {
 
         [Fact]
-        public void Add()
+        public void AddTest()
         {
             //arrange
 
@@ -24,8 +24,8 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(new double[] { 1, 2, 3}, 6 )]
-        public void AddArray(double expected, params double[] array)
+        [InlineData (new double[] {1,2,3,1,2}, 9)]
+        public void AddArrayTest( double[] array, double expected)
         {
             
             // Action
@@ -36,7 +36,7 @@ namespace Calculator.Tests
         }
 
         [Fact]
-        public void Substract()
+        public void SubstractTest()
         {
             //arrange
             double x1 = 10;
@@ -50,11 +50,9 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(8, 7.5, 6, 3)]
-        public void SubstractArray(params double[] array)
+        [InlineData(new double[] { 1, 2, 3, 1, 2 }, -7)]
+        public void SubstractArrayTest(double[] array, double expected)
         {
-          
-            double expected = -8.5;
             //act
             var actual = CalculatorProgram.Program.Subtract(array);
 
@@ -64,7 +62,7 @@ namespace Calculator.Tests
 
         [Theory(DisplayName = "Maths- Divided with parameters")]
         [InlineData(40, 8, 5)]
-        public void Divide(double value1, double value2, double value3)
+        public void DivideTest(double value1, double value2, double value3)
         {
             //arrange
             double x1 = value1;
@@ -79,7 +77,7 @@ namespace Calculator.Tests
         }
 
         [Fact]
-        public void Multiply()
+        public void MultiplyTest()
         {
             //arrange
             double x1 = 5;
@@ -94,7 +92,7 @@ namespace Calculator.Tests
         }
 
         [Fact]
-        public void DivideByZero()
+        public void DivideByZeroTest()
         {
             //arrange
            
