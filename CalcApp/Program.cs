@@ -32,12 +32,17 @@ namespace CalculatorProgram
                 double cleanNum2;
                 cleanNum2 = GetNumberFromUser();
 
-                //double[] n = new double[10];
-                //for (int i = 0; i < 10; i++)
-                //{
-                //    n[i] = GetNumberFromUser();
-                //}
+                //Ask user to type Array.
+                double[] array = new double[5];
+                Console.Write("Input 5 elements in the array :\n");
 
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write("element - {0} : ", j);
+                    array[j] = Convert.ToDouble(Console.ReadLine());
+                }
+
+                //Display Menu
                 Console.WriteLine("Choose an operator from the following list:");
                 Console.WriteLine("\ta - Add");
                 Console.WriteLine("\ts - Subtract");
@@ -47,7 +52,7 @@ namespace CalculatorProgram
 
                 string op = Console.ReadLine();
 
-                DoOperation(cleanNum1, cleanNum2, op);
+                DoOperation(cleanNum1, cleanNum2, op, array);
                
 
                 Console.WriteLine("------------------------\n");
@@ -72,7 +77,7 @@ namespace CalculatorProgram
             return userInput;
         }
 
-        public static double DoOperation(double num1, double num2, string op)
+        public static double DoOperation(double num1, double num2, string op, params double[] array)
         {
             double result = 0;
 
@@ -80,9 +85,11 @@ namespace CalculatorProgram
             {
                 case "a":
                     Add(num1, num2);
+                    Add(array);
                     break;
                 case "s":
                     Subtract(num1, num2);
+                    Subtract(array);
                     break;
                 case "m":
                     Multiply(num1, num2);
@@ -107,21 +114,24 @@ namespace CalculatorProgram
             return result;
         }
 
-        public static double Add(double num1, double num2, params double[] n)
+        public static double Add(params double[] array)
         {
-            double result;
-
-            result = num1 + num2;
-
-            if (n != null)
-            {
-                foreach (int i in n)
-                {
-
-                    Console.WriteLine($"Your result: " + (result += i));
-                }
-            }
+            double result = 0;
+            for (int i = 0; i < array.Length; i++)
+                result += array[i];
+            Console.WriteLine("The sum of the elements of the array is {0}", result);
             return result;
+
+
+            //if (n != null)
+            //{
+            //    foreach (int i in n)
+            //    {
+
+            //        Console.WriteLine($"Your result: " + (result += i));
+            //    }
+            //}
+            //return result;
         }
 
         public static double Subtract(double num1, double num2)
@@ -133,20 +143,23 @@ namespace CalculatorProgram
             return result;
         }
 
-        public static double Subtract(double num1, double num2, params double[] n)
+        public static double Subtract(params double[] array)
         {
-            double result;
-            result = num1 - num2;
+            double result = 0;
 
-
-            if (n != null)
-            {
-                foreach (int i in n)
-                {
-                    Console.WriteLine($"Your result: " + (result -= i));
-                }
-            }
+            for (int i = 0; i < array.Length; i++)
+                result -= array[i];
+            Console.WriteLine("The subtraction of the elements of the array is {0}", result);
             return result;
+
+            //if (n != null)
+            //{
+            //    foreach (int i in n)
+            //    {
+            //        Console.WriteLine($"Your result: " + (result -= i));
+            //    }
+            //}
+            //return result;
         }
 
         public static double Multiply(double num1, double num2)
@@ -174,15 +187,7 @@ namespace CalculatorProgram
             }
             Console.WriteLine($"Your result: {num1} / {num2} = " + result);
             return result;
-            //while (num2 == 0)
-            //{
-            //    Console.WriteLine("Enter a non-zero divisor: ");
-            //    Console.WriteLine();
-            //    num2 = GetNumberFromUser();
-            //}
-            //Console.WriteLine($"Your result: {num1} / {num2} = " + result);
-
-            //return result;
+            
         }
     }
 }
