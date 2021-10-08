@@ -145,21 +145,14 @@ namespace CalculatorProgram
 
         public static double Subtract(params double[] array)
         {
-            double result = 0;
+            double result = array[0];
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i++)
                 result -= array[i];
+
             Console.WriteLine("The subtraction of the elements of the array is {0}", result);
             return result;
 
-            //if (n != null)
-            //{
-            //    foreach (int i in n)
-            //    {
-            //        Console.WriteLine($"Your result: " + (result -= i));
-            //    }
-            //}
-            //return result;
         }
 
         public static double Multiply(double num1, double num2)
