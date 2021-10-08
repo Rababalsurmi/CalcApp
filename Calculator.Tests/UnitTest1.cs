@@ -24,11 +24,11 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(3, 6, 9)]
-        public void AddArray(double num1, double num2, double expected, params double[] n)
+        [InlineData(new double[] { 8, 7.5, 6, 3 })]
+        public void AddArray( double expected, params double[] array)
         {
             // Action
-            double actual = CalculatorProgram.Program.Add(num1, num2, n);
+            double actual = CalculatorProgram.Program.Add(array);
 
             // Assertion
             Assert.Equal(expected, actual);
@@ -49,12 +49,13 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(3, 6, -3)]
         
-        public void SubstractArray(double num1, double num2, double expected, params double[] n)
+        [InlineData(new double[] { 8, 7.5, 6, 3 })]
+
+        public void SubstractArray(double expected, params double[] array)
         {
             //act
-            var actual = CalculatorProgram.Program.Subtract(num1, num2, n);
+            var actual = CalculatorProgram.Program.Subtract(array);
 
             //assert
             Assert.Equal(expected, actual);
@@ -105,18 +106,5 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
 
-        //[Fact(DisplayName = "Maths - Divide by Zero Exception")]
-        //public void DivideByZeroException()
-        //{
-        //    //arrange
-        //    double a = 100;
-        //    double b = 0;
-
-        //    //act
-        //    Action act = () => CalculatorProgram.Program.Divide(a, b);
-
-        //    //assert
-        //    Assert.Throws<DivideByZeroException>(act);
-        //}
     }
 }
