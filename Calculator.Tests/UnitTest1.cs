@@ -24,9 +24,10 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        [InlineData(new double[] { 8, 7.5, 6, 3 })]
-        public void AddArray( double expected, params double[] array)
+        [InlineData(new double[] { 1, 2, 3}, 6 )]
+        public void AddArray(double expected, params double[] array)
         {
+            
             // Action
             double actual = CalculatorProgram.Program.Add(array);
 
@@ -49,11 +50,11 @@ namespace Calculator.Tests
             Assert.Equal(expected, actual);
         }
         [Theory]
-        
-        [InlineData(new double[] { 8, 7.5, 6, 3 })]
-
-        public void SubstractArray(double expected, params double[] array)
+        [InlineData(8, 7.5, 6, 3)]
+        public void SubstractArray(params double[] array)
         {
+          
+            double expected = -8.5;
             //act
             var actual = CalculatorProgram.Program.Subtract(array);
 
@@ -104,6 +105,17 @@ namespace Calculator.Tests
 
             //assert
             Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void ArrayOutOfBoundsTest()
+        {
+            //Arrange
+            double[] array = { 2, 0, 2, 1 };
+            string expectedText = "Index was outside the bounds of the array.";
+            //Act
+            var result = Assert.Throws<IndexOutOfRangeException>(() => array[99]);
+            //Assert
+            Assert.Equal(expectedText, result.Message);
         }
 
     }
